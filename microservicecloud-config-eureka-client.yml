@@ -1,0 +1,39 @@
+spring:
+  profiles:
+    active:
+    - dev
+---
+server:
+  port: 7001 #registration center port number
+
+spring:
+  profiles: dev
+  application:
+    name: microservicecloud-config-eureka-client
+
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    register-with-eureka: false #eureka not register itself
+    fetch-registry: false   # not get registry info from eureka
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+---
+server:
+  port: 7001 #registration center port number
+
+spring:
+  profiles: test
+  application:
+    name: microservicecloud-config-eureka-client
+
+eureka:
+  instance:
+    hostname: eureka7001.com
+  client:
+    register-with-eureka: false #eureka not register itself
+    fetch-registry: false   # not get registry info from eureka
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+## please save as UTF-8 format
